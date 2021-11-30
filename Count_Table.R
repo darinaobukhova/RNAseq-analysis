@@ -132,9 +132,8 @@ totalcount2              <- totalcount;
 totalcount2$ID           <- gtf$ID.exon;
 write.table(totalcount2,file=paste(analyses.result,"all_exons_with_counts.txt",sep="/"),sep="\t",quote=FALSE,row.names=FALSE);
 
-totalcount <- read.table("/Users/G10061578/projects/Endometrial_Ageing/2021-11-10/all_exons_with_counts.txt", sep="\t", header=T)
 
-totalGenes               <- aggregate(totalcount[,colflsnames],list(totalcount[,"ID"]),FUN=sum); 
+totalGenes <- aggregate(totalcount[,colflsnames],list(totalcount[,"ID"]),FUN=sum); 
 colnames(totalGenes) <- c("ID",colflsnames); 
 
 save.image(paste(analyses.result,paste(ref_genome,ref_gtf,"loaded_bams.Rdata",sep="_"),sep="/"))
